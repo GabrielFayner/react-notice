@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Button from "../Button";
 import { Container, Title, Search } from "./styles";
 
-function Header({ title, isListOrForm }) {
+function Header({ title, isListOrForm, search, setSearch }) {
   return (
     <Container>
       <Title>
@@ -16,7 +16,11 @@ function Header({ title, isListOrForm }) {
       </Title>
       {isListOrForm ? (
         <Search>
-          <input placeholder="Pesquisa de noticia" />
+          <input
+            placeholder="Pesquise titulo da noticia"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
         </Search>
       ) : (
         ""

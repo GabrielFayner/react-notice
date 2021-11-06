@@ -3,10 +3,10 @@ import Header from "../Header";
 
 import { Container } from "./styles";
 
-function Layout({ children, title, isSearch }) {
+function Layout({ children, title, isListOrForm }) {
   return (
     <Container>
-      <Header title={title} isSearch={isSearch} />
+      <Header title={title} isListOrForm={isListOrForm} />
       {children}
     </Container>
   );

@@ -7,6 +7,17 @@ export const Container = styled.div`
   padding: 20px;
 `;
 
+export const Title = styled.div`
+  display: flex;
+  align-items: center;
+
+  span {
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 20px;
+  }
+`;
+
 export const Search = styled.div`
   input {
     margin-left: 5px;

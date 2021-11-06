@@ -6,7 +6,7 @@ import Modal from "../Modal";
 import { Container, Header, Content, Footer } from "./styles";
 import Button from "../Button";
 
-function Card({ title, post, id, getNotices, data, setData }) {
+function Card({ title, author, post, id, getNotices, data, setData }) {
   const [open, setOpen] = useState(false);
 
   const handleDelete = async () => {
@@ -18,7 +18,10 @@ function Card({ title, post, id, getNotices, data, setData }) {
 
   return (
     <Container>
-      <Header>{title}</Header>
+      <Header>
+        <h4> {title}</h4>
+        <span>autor: {author}</span>
+      </Header>
       <Content>{post}</Content>
       <Footer>
         <Link to={`/edit/${id}`}>

@@ -21,12 +21,13 @@ function Home() {
   }, []);
 
   return (
-    <Layout title="Noticia" isSearch>
+    <Layout title="Noticia" isListOrForm>
       {data &&
         data.map((item) => (
           <Card
             key={item._id}
             title={item.title}
+            author={item.author.name}
             post={item.post}
             id={item._id}
             getNotices={loadData}

@@ -9,6 +9,9 @@ export const Container = styled.div`
   margin: 20px;
 `;
 export const Header = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
   background-color: #fafafa;
   padding: 20px;
 `;

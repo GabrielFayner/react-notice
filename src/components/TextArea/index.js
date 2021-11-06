@@ -1,8 +1,13 @@
 import React from "react";
 
-function TextArea({ Value, OnChange }) {
+function TextArea({ Name, Value, OnChange }) {
   return (
-    <textarea className="form-control" value={Value} onChange={OnChange} />
+    <textarea
+      className="form-control"
+      name={Name}
+      value={Value}
+      onChange={OnChange}
+    />
   );
 }
 export default TextArea;

@@ -29,6 +29,9 @@ function Home() {
             title={item.title}
             post={item.post}
             id={item._id}
+            getNotices={loadData}
+            data={data}
+            setData={setData}
           />
         ))}
     </Layout>

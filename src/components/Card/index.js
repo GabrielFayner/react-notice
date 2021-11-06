@@ -1,10 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import api from "../../services/api";
+import Modal from "../Modal";
 
 import { Container, Header, Content, Footer } from "./styles";
 import Button from "../Button";
 
-function Card({ title, post, id }) {
+function Card({ title, post, id, getNotices, data, setData }) {
+  const [open, setOpen] = useState(false);
+
+  const handleDelete = async () => {
+    await api.delete(`notice/${id}`);
+    setOpen(false);
+    getNotices();
+    setData(data);
+  };
+
   return (
     <Container>
       <Header>{title}</Header>
@@ -13,8 +24,13 @@ function Card({ title, post, id }) {
         <Link to={`/edit/${id}`}>
           <Button title="Editar" kind="isEdit" />
         </Link>
-        <Button title="Deletar" kind="isDelete" />
+        <Button title="Deletar" kind="isDelete" click={() => setOpen(true)} />
       </Footer>
+      {open ? (
+        <Modal handleClose={() => setOpen(false)} onDelete={handleDelete}>
+          Deseja realmente excluir?
+        </Modal>
+      ) : null}
     </Container>
   );
 }
